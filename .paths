@@ -1,0 +1,4 @@
+$home = /
+$configs = /configs
+$misc = /misc
+$db_v1 = /api/v1/database/
