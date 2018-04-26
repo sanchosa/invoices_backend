@@ -5,7 +5,6 @@ const {errorHandler} = require(`$misc`)
 const app = new Koa()
 app.on(`error`, (err, ctx) => errorHandler(ctx, `Server`, err))
 
-
 const bodyparser = require(`koa-bodyparser`)()
 const json = require(`koa-json`)
 const assets = require(`koa-static`)

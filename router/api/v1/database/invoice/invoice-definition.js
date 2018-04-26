@@ -1,7 +1,8 @@
 'use strict'
+const {getValidDate, convertDate} = require(`$misc`)
 
-module.exports = (sequelize, DataTypes) =>
-    sequelize.define(`invoice`, {
+module.exports = function(sequelize, DataTypes) {
+    return sequelize.define(`invoice`, {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -14,12 +15,27 @@ module.exports = (sequelize, DataTypes) =>
         },
         date: {
             type: DataTypes.DATEONLY,
-            allowNull: false
+            allowNull: false,
+            set: function(val) {
+                return this.setDataValue(`date`, convertDate(val, `DD-MM-YYYY`, `YYYY-MM-DD`))
+            },
+            get: function() {
+                const data = this.getDataValue(`date`)
+                return getValidDate(data, `DD-MM-YYYY`)
+            }
         },
         supplyDate: {
             type: DataTypes.DATEONLY,
             allowNull: true,
-            field: `supply_date`
+            field: `supply_date`,
+            set: function(val) {
+                return this.setDataValue(`supplyDate`, convertDate(val, `DD-MM-YYYY`, `YYYY-MM-DD`))
+            },
+            get: function() {
+                const data = this.getDataValue(`supplyDate`)
+                return getValidDate(data, `DD-MM-YYYY`)
+                // getValidDate(this.getDataValue(`supplyDate`), `DD-MM-YYYY`)
+            }
         },
         comment: {
             type: DataTypes.TEXT,
@@ -30,3 +46,4 @@ module.exports = (sequelize, DataTypes) =>
         timestamps: false,
         tableName: 'invoices'
     })
+}
