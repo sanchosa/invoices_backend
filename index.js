@@ -1,6 +1,5 @@
 const Koa = require(`koa`)
-const log4js = require(`$configs/log4js`)
-const koaLogger  = require(`$configs/koa-logger`)
+const {koaLogger} = require(`$configs`)
 const {errorHandler} = require(`$misc`)
 
 const app = new Koa()

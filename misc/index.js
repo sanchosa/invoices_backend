@@ -1,5 +1,5 @@
 const Sequelize = require(`sequelize`)
-const logger = require(`$configs/log4js`)
+const {logger} = require(`$configs`)
 
 const errorHandler = (ctx, mark = `Error:`, err) => {
 	if (ctx) {

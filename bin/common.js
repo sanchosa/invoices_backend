@@ -1,4 +1,4 @@
-const logger = require(`$configs/log4js`)
+const {logger} = require(`$configs`)
 
 const onError = port => error => {
 	if (error.syscall !== `listen`) {

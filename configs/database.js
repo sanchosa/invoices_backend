@@ -10,7 +10,7 @@ const log = function(message, time) {
     }
 };
 
-const sequelize = new Sequelize(`cbsorders`, `root`, `123456`, {
+const sequelize = new Sequelize(`invoices`, `test`, `test123test`, {
     host: `127.0.0.1`,
     dialect: `mysql`,
     timezone: `+06:00`,
@@ -26,8 +26,13 @@ const sequelize = new Sequelize(`cbsorders`, `root`, `123456`, {
 })
 
 async function test() {
-	await sequelize.authenticate()
-	console.info(`Connection to database ('${db}') has been established successfully.`)
+	sequelize.authenticate()
+        .then(result => 
+            logger.info(`Connection to database 'invoices' has been established successfully.`)
+        )
+        .catch(err =>
+            logger.error(`Error connecting to database 'invoices'. ${err}`)
+        )
 }
 test()
 module.exports = sequelize

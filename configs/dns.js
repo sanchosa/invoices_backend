@@ -1,4 +1,4 @@
-const randomPage = `https://picsum.photos/800`
+const randomPage = `https://picsum.photos/`
 
 module.exports = {
 	rp: randomPage

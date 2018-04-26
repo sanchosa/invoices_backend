@@ -1,5 +1,5 @@
 const paths = require(`sexy-require`)
-const logger = require(`$configs/log4js`)
+const {logger} = require(`$configs`)
 const {
 	getPort,
 	onError,
