@@ -1,4 +1,4 @@
 $home = /
 $configs = /configs
 $misc = /misc
-$db_v1 = /api/v1/database/
+$db_v1 = /router/api/v1/database/

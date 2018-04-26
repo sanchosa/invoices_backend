@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) =>
             allowNull: false
         },
         number: {
-            type: DataTypes.STRING(255)
+            type: DataTypes.STRING(255),
             allowNull: false
         },
         date: {
@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) =>
         },
         supplyDate: {
             type: DataTypes.DATEONLY,
-            allowNull: true
+            allowNull: true,
             field: `supply_date`
         },
         comment: {
@@ -30,4 +30,3 @@ module.exports = (sequelize, DataTypes) =>
         timestamps: false,
         tableName: 'invoices'
     })
-}
