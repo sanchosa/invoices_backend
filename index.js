@@ -13,7 +13,7 @@ const day = 1000 * 60 * 60 * 24
 app.use(bodyparser)
 app.use(koaLogger())
 app.use(json())
-app.use(assets(`../frontend/build/public`, {maxage: day}))
+app.use(assets(`../invoices_frontend/build/public`, {maxage: day}))
 
 const router = require(`./router`)
 app.use(router.routes())
