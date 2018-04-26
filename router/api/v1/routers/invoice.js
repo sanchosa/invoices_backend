@@ -24,4 +24,11 @@ router.put(`/`, async ctx => {
     await tryCatch(routeFunction, ctx, routeDescription)
 })
 
+router.get(`/:id`, async ctx => {
+    ctx.body = await Invoice.findById(ctx.params.id)
+})
+router.delete(`/:id`, async ctx => {
+    ctx.body = await Invoice.delete(ctx.params.id)
+})
+
 module.exports = [router.routes(), router.allowedMethods()]
