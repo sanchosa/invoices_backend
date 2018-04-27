@@ -5,7 +5,7 @@ const {Invoice} = require(`$db_v1`)
 const {tryCatch, checkRequiredParams} = require(`$misc`)
 
 router.get(`/`, async ctx => {
-	ctx.body = await Invoice.findAll()
+	ctx.body = await Invoice.getAll(ctx.query)
 })
 
 router.post(`/`, async ctx => {
